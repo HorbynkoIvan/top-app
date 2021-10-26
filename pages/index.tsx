@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home(): JSX.Element {
+  const a = 1;
   return (
     <div className={styles.container}>
       <Head>
@@ -36,7 +37,7 @@ export default function Home(): JSX.Element {
             href="https://github.com/vercel/next.js/tree/master/examples"
             className={styles.card}
           >
-            <h2>Examples &rarr;</h2>
+            <h2>Examples {a}&rarr;</h2>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
           </a>
 
