@@ -24,7 +24,7 @@ export default function Home(): JSX.Element {
       <Tag size="s" color="primary">
         Primary
       </Tag>
-      <Rating rating={4} />
+      <Rating rating={4} isEditable={true} />
     </div>
   );
 }

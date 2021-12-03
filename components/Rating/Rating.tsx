@@ -25,11 +25,21 @@ export const Rating = ({
         <StarIcon
           className={cn(styles.star, {
             [styles.filled]: i < currentRating,
+            [styles.isEditable]: isEditable,
           })}
+          onMouseEnter={() => changeDisplay(i + 1)}
+          onMouseLeave={() => changeDisplay(rating)}
         />
       );
     });
     setRatingArray(updateArray);
+  };
+
+  const changeDisplay = (i: number) => {
+    if (!isEditable) {
+      return;
+    }
+    constructRating(i);
   };
 
   return (

@@ -5,3 +5,7 @@
 .star {
   margin-right: 5px;
 }
+
+.isEditable {
+  cursor: pointer;
+}
