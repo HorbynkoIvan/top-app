@@ -8,7 +8,6 @@ export const Rating = ({
   isEditable = false,
   rating,
   setRating,
-  className,
   ...props
 }: RatingProps): JSX.Element => {
   const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
@@ -20,7 +19,7 @@ export const Rating = ({
   }, [rating]);
 
   const constructRating = (currentRating: number) => {
-    const updateArray = ratingArray.map((r: JSX.Element, i: number) => {
+    const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
       return (
         <span
           className={cn(styles.star, {
@@ -40,7 +39,7 @@ export const Rating = ({
         </span>
       );
     });
-    setRatingArray(updateArray);
+    setRatingArray(updatedArray);
   };
 
   const changeDisplay = (i: number) => {
@@ -56,6 +55,7 @@ export const Rating = ({
     }
     setRating(i);
   };
+
   const handleSpace = (i: number, e: KeyboardEvent<SVGElement>) => {
     if (e.code != "Space" || !setRating) {
       return;

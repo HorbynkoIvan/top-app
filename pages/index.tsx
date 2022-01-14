@@ -4,6 +4,7 @@ import { Button, Htag, P, Tag, Rating } from "../components";
 
 function Home(): JSX.Element {
   const [rating, setRating] = useState<number>(4);
+
   return (
     <>
       <Htag tag="h3">sometext</Htag>
