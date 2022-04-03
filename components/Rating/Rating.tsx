@@ -65,8 +65,8 @@ export const Rating = ({
 
   return (
     <div {...props}>
-      {ratingArray.map((r, i) => (
-        <span key={i}>{r}</span>
+      {ratingArray.map((ratingValue, i) => (
+        <span key={i}>{ratingValue}</span>
       ))}
     </div>
   );
