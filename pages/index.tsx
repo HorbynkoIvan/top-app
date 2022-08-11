@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import { withLayout } from "../layout/Layout";
-import { Button, Htag, P, Tag, Rating } from "../components";
+import axios from "axios";
 
-function Home(): JSX.Element {
+import { withLayout } from "../layout/Layout";
+import { Button, Htag, P, Rating, Tag } from "../components";
+import { FilmItem } from "../interfaces/menu.interface";
+
+interface Props extends Record<string, unknown> {
+  menu: FilmItem[];
+}
+
+function Home({ menu }: Props): JSX.Element {
   const [rating, setRating] = useState<number>(4);
+  console.log(menu);
 
   return (
     <>
@@ -28,8 +36,22 @@ function Home(): JSX.Element {
         Primary
       </Tag>
       <Rating rating={rating} isEditable={true} setRating={setRating} />
+      <ul>
+        {menu.map((item) => (
+          <li key={item.episode_id}>{item.title}</li>
+        ))}
+      </ul>
     </>
   );
 }
 
 export default withLayout(Home);
+
+export const getStaticProps = async () => {
+  const { data } = await axios.get(process.env.NEXT_PUBLIC_DOMAIN + "films");
+  return {
+    props: {
+      menu: data.results,
+    },
+  };
+};
